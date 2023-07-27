@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import { getProducts } from "../helpers/getData"
+import { doc, getDoc } from "firebase/firestore"
+import { db } from "../firebase/config"
+
 
 const ItemDetailContainer = () => {
 
@@ -9,14 +11,16 @@ const ItemDetailContainer = () => {
 
 	const { itemId } = useParams()
 
-
-
 	useEffect(() => {
 		setLoading(true)
-		getProducts().
-			then((data) => {
-				setProduct(data.find((item) => item.id === parseInt(itemId)))
-			}).
+		const itemRef = doc(db, 'productos', itemId)
+
+		getDoc(itemRef).then((doc) => {
+			setProduct({
+				id: doc.id,
+				...doc.data()
+			})
+		}).
 			catch((error) => console.log(error)).
 			finally(() => setLoading(false));
 	}, [itemId])

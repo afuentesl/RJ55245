@@ -1,6 +1,7 @@
 import { Link, useParams } from "react-router-dom"
 import { useEffect, useState } from "react"
-import { getProducts } from "../helpers/getData"
+import { collection, getDocs, query, where } from "firebase/firestore"
+import { db } from "../firebase/config"
 
 const ItemListContainer = () => {
 	const [products, setProducts] = useState([])
@@ -11,9 +12,20 @@ const ItemListContainer = () => {
 	useEffect(() => {
 		setLoading(true)
 
-		getProducts().
+		const productosRef = collection(db, 'productos')
+
+		const q = categoryId ? query(productosRef, where('categoryName', '==', categoryId)) :
+			productosRef
+
+		getDocs(q).
 			then((data) => {
-				categoryId ? setProducts(data.filter((product) => product.categoryName === categoryId)) : setProducts(data)
+				const docs = data.docs.map((doc) => {
+					return {
+						id: doc.id,
+						...doc.data()
+					}
+				})
+				setProducts(docs)
 			}).
 			catch((error) => console.log(error)).
 			finally(() => setLoading(false));
