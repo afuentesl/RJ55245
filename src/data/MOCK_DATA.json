@@ -1,0 +1,82 @@
+[
+	{
+		"id": 1,
+		"name": "Royal Canin 15 kg",
+		"price": 50000,
+		"img": "https://placedog.net/200/200?r",
+		"categoryId":1,
+		"categoryName":"comida-perros",
+		"stock": 10,
+		"description": "Comida para perros de raza pequeña"
+	},
+	{
+		"id": 2,
+		"name": "Nutragold 13 kg",
+		"price": 49000,
+		"img": "https://placedog.net/200/200?r",
+		"categoryId": 1,
+		"categoryName":"comida-perros",
+		"stock": 5,
+		"description": "Comida para perros de raza mediana"
+	},
+	{
+		"id": 3,
+		"name": "Pedigree senior 21 kg",
+		"price": 35000,
+		"img": "https://placedog.net/200/200?r",
+		"categoryId": 1,
+		"categoryName":"comida-perros",
+		"stock": 4,
+		"description": "Comida para perros de raza grande"
+	},
+	{
+		"id": 4,
+		"name": "Dog Show 21 kg",
+		"price": 22000,
+		"img": "https://placedog.net/200/200?r",
+		"categoryId": 1,
+		"categoryName":"comida-perros",
+		"stock": 9,
+		"description": "Comida para perros adultos"
+	},
+	{
+		"id": 5,
+		"name": "Nutrience 11",
+		"price": 20000,
+		"img": "http://placekitten.com/200/200",
+		"categoryId": 2,
+		"categoryName":"comida-gatos",
+		"stock": 6,
+		"description": "Comida para gatos de raza pequeña"
+	},
+	{
+		"id": 6,
+		"name": "Hills 10 kg",
+		"price": 26000,
+		"img": "http://placekitten.com/200/200",
+		"categoryId": 2,
+		"categoryName":"comida-gatos",
+		"stock": 8,
+		"description": "Comida para gatos de raza mediana"
+	},
+	{
+		"id": 7,
+		"name": "Fit Formula 10 kg",
+		"price": 16000,
+		"img": "http://placekitten.com/200/200",
+		"categoryId": 2,
+		"categoryName":"comida-gatos",
+		"stock": 3,
+		"description": "Comida para gatos de raza grande"
+	},
+	{
+		"id": 8,
+		"name": "Cat Chow 10 kg",
+		"price": 15000,
+		"img": "http://placekitten.com/200/200",
+		"categoryId": 2,
+		"categoryName":"comida-gatos",
+		"stock": 6,
+		"description": "Comida para gatos adultos"
+	}
+]
