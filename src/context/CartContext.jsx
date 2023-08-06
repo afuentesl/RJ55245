@@ -24,11 +24,13 @@ export const CartProvider = ({ children }) => {
 	}
 
 	const totalItemsToPurchase = () => {
-		return cart.reduce((acc, item) => acc + item.cantidad, 0);
+		if(cart.length === 0) return 0;
+
+		return cart.reduce((acc, item) => acc + item.quantity, 0);
 	}
 
 	const totalPurchase = () => {
-		return cart.reduce((acc, item) => acc + item.price * item.cantidad, 0);
+		return cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
 	}
 
 	useEffect(() => {

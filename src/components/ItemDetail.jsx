@@ -10,12 +10,12 @@ const ItemDetail = (props) => {
 	const [quantity, setQuantity] = useState(1);
 
 	const handleAddItemToCart = () => {
-        const newItem = {
-            ...product,
-            quantity
-        }
-        addToCart(newItem)
-    }
+		const newItem = {
+			...product,
+			quantity
+		}
+		addToCart(newItem)
+	}
 
 
 	return (
@@ -34,9 +34,9 @@ const ItemDetail = (props) => {
 
 							<div className="flex">
 								<span className="title-font font-medium text-2xl text-white">$ {product.price}</span>
-								<div className="align-middle pl-2">
+								{!isInCart(product.id) ? <div className="align-middle pl-2">
 									<ItemCount max={product.stock} quantity={quantity} setQuantity={setQuantity} addToCart={handleAddItemToCart} />
-								</div>
+								</div> : null}
 
 							</div>
 

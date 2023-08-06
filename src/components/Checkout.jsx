@@ -48,7 +48,7 @@ const Checkout = () => {
 
 	}
 	return (
-		<div className="pt-40 bg-blue-950 grid h-screen">
+		<div className="bg-blue-950 grid h-screen">
 			<form action="">
 				<input type="text" onChange={handleInputChange} value={values.name}  placeholder="Ingrese nombre" />
 				<input type="text" onChange={handleInputChange} value={values.address}placeholder="Ingrese dirección" />

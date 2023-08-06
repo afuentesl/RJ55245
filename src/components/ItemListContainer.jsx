@@ -32,7 +32,7 @@ const ItemListContainer = () => {
 	}, [categoryId])
 
 	return (
-		<div className="pt-40 bg-blue-950 grid h-screen">
+		<div className="bg-blue-950 grid h-screen">
 			<div>
 				{
 					loading ?
