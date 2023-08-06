@@ -88,7 +88,7 @@ const Navbar = () => {
 
 								</div>
 
-								: <a className="block mt-4 lg:inline-block lg:mt-0 text-white-200 mr-4" key={menuItem.id}><NavBarItem text={menuItem.text} url={menuItem.url} style=" text-gray-700 hover:text-blue-900 text-xl" /></a>
+								: <div className="block mt-4 lg:inline-block lg:mt-0 text-white-200 mr-4" key={menuItem.id}><NavBarItem text={menuItem.text} url={menuItem.url} style=" text-gray-700 hover:text-blue-900 text-xl" /></div>
 
 						})
 					}
