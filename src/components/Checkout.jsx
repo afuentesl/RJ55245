@@ -23,6 +23,7 @@ const schema = Yup.object().shape({
 		.required("Este campo es obligatorio")
 		.email("El email es inválido")
 		.required("Ingrese un correo válido de teléfono para contacto."),
+	emailRepeat: Yup.string().email().oneOf([Yup.ref("email"), null], "Los emails deben coincidir").required("Debe completar este campo"),
 	phoneNumber: Yup.string()
 		.min(10, "El número de teléfono es demasiado corto")
 		.max(15, "El numero de teléfono es demasiado largo")
@@ -107,7 +108,7 @@ const Checkout = () => {
 
 	return (
 		!orderId ?
-			<div className="bg-blue-950 grid h-screen place-items-center">
+			<div className="bg-blue-950 grid h-screen w-screen place-items-center">
 				<h1 className="text-white text-4xl text-center">Checkout</h1>
 				<div className="grid mb-12">
 					<Formik
@@ -116,6 +117,7 @@ const Checkout = () => {
 							dni: '',
 							address: '',
 							email: '',
+							emailRepeat: '',
 							phoneNumber: '',
 						}}
 						onSubmit={handleSubmit}
@@ -150,6 +152,13 @@ const Checkout = () => {
 									name="email"
 									placeholder="Ingrese email" />
 								<ErrorMessage name="email" component="p" className="text-red-500" />
+
+								<label htmlFor="emailRepeat" className="block mb-2 text-l font-medium text-gray-900 dark:text-white">Repetir Email</label>
+								<Field type="text"
+									className="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+									name="emailRepeat"
+									placeholder="Repetir email" />
+								<ErrorMessage name="emailRepeat" component="p" className="text-red-500" />
 
 								<label htmlFor="phoneNumber" className="block mb-2 text-l font-medium text-gray-900 dark:text-white">Teléfono de contacto</label>
 								<Field type="text"
