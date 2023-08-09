@@ -40,6 +40,29 @@ const Navbar = () => {
 
 	return (
 
+		// <nav aria-label="primary" className="relative z-20 flex-col flex-grow hidden pb-4 md:pb-0 md:flex md:justify-end md:flex-row">
+
+		// 	<div className="relative group">
+		// 		<button className="flex flex-row items-center w-full px-4 py-4 mt-2 text-base font-bold text-left uppercase bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
+		// 			<span>First Dropdown</span>
+		// 		</button>
+		// 		<div className="absolute z-10 hidden bg-grey-200 group-hover:block">
+
+		// 			<div className="px-2 pt-2 pb-4 bg-white bg-gray-200 shadow-lg">
+		// 				<div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+		// 					<p>
+		// 						dropdown content here
+		// 					</p>
+		// 				</div>
+		// 			</div>
+		// 		</div>
+		// 	</div>
+
+		// </nav>
+
+
+
+
 		<nav className="flex items-center justify-between flex-wrap p-6 bg-white">
 			<div className="flex items-center flex-shrink-0 text-white mr-6 lg:mr-72">
 				<Logo></Logo>
@@ -73,21 +96,20 @@ const Navbar = () => {
 					{
 						menuItemList.map((menuItem) => {
 							return menuItem.subCategory.length > 0 ?
-								<div className="block mt-4 lg:inline-block lg:mt-0 text-white-200 mr-4 relative group" key={menuItem.id}>
-									<button className="text-gray-700 hover:text-blue-900 group-hover:visible text-xl">{menuItem.text}</button>
-
-									<div className='hidden group-hover:block'>
-										<ul className='mt-2 flex flex-col items-center'>
-											{menuItem.subCategory.map((subCategory) => {
-												return <li className="invisible group-hover:dropdownNavbar" key={subCategory.id}> <NavBarItem text={subCategory.text} url={`category/${subCategory.code}`} style="hover:text-blue-900 invisible group-hover:visible text-xl" /></li>
-											})}
-
-										</ul>
-
+								<div className="relative group block mt-4 lg:inline-block lg:mt-0 text-white-200 mr-4" key={menuItem.id}>
+									<button className="flex flex-row items-center w-fullblock text-gray-700 hover:text-blue-900 text-xl mt-4 lg:inline-block lg:mt-0 text-white-200 mr-4 md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none">
+										<span>{menuItem.text}</span>
+									</button>
+									<div className="absolute z-10 hidden bg-white group-hover:block rounded border">
+										{menuItem.subCategory.map((subCategory) => {
+											return <div key={subCategory.id}className="px-2 pt-2 pb-2 bg-white bg-white shadow-lg">
+												<div className="">
+													<NavBarItem text={subCategory.text} url={`category/${subCategory.code}`} style="hover:text-blue-900 invisible group-hover:visible text-xl" />
+												</div>
+											</div>
+										})}
 									</div>
-
 								</div>
-
 								: <div className="block mt-4 lg:inline-block lg:mt-0 text-white-200 mr-4" key={menuItem.id}><NavBarItem text={menuItem.text} url={menuItem.url} style=" text-gray-700 hover:text-blue-900 text-xl" /></div>
 
 						})
