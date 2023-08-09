@@ -37,7 +37,7 @@ const ItemListContainer = () => {
 				{
 					loading ?
 						<p className="text-yellow-50 font-extrabold text-5xl text-center grid h-screen place-items-center">Cargando...</p> :
-							<ItemList productList={products}></ItemList>
+						<ItemList productList={products}></ItemList>
 				}
 			</div>
 		</div>

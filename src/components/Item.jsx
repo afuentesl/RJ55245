@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 const Item = (props) => {
 	const { item } = props;
 	return (
-		<div key={item.id} className="col-span-1 flex flex-col bg-white border-2 p-4 rounded-lg ">
-			<img className="rounded-lg mb-3 border-black border max-h-30 max-w-2" src={item.img} />
+		<div key={item.id} className="col-span-1 flex flex-col bg-white border-2 p-1 rounded-lg max-w-md ">
+			<img className="rounded-lg mb-3 border-black border max-h-80 max-w-1" src={item.img} />
 			<h2 className="mb-2 font-bold text-2xl text-center">
 				{item.name}
 			</h2>

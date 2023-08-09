@@ -51,25 +51,32 @@ const CartView = () => {
 					<div className=" text-white grid-cols-6">
 						{
 							cart.map((item) => (
-								<div className=" flex bg-cyan-50 border-2 border-gray-200 rounded-lg w-full text-black p-2 m-2 align-middle"
-									key={item.id}>
-
-									<div className="">
-										<img className="rounded-lg mb-3 border-black border max-h-12 max-w-2 object-left-bottom" src={item.img} alt={item.name} />
+						
+									<div key={item.id} className="max-w-sm w-full lg:max-w-full lg:flex pl-4 rounded-lg ">
+										<div className="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t lg:rounded-l text-center overflow-hidden" style={{
+											backgroundImage: `url(${item.img})`,
+										}} title={item.name}>
+										</div>
+										<div className="border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
+											<div className="mb-8">
+												<p className="text-sm text-gray-600 flex items-center">
+													{item.categoryName}
+												</p>
+												<div className="text-gray-900 font-bold text-xl mb-2">{item.name}</div>
+												<p className="text-gray-700 text-base">{item.description}</p>
+												<hr />
+												<p className="text-gray-700 text-base"><b>Precio: ${item.price * item.quantity}</b></p>
+												<p className="text-gray-700 text-base">Cantidad: {item.quantity}</p>
+												{haveInsufficientStock(item) ? < p className="text-red-500 text-base" >No hay stock suficiente de este producto</p> : null}
+											</div>
+											<div className="flex items-center">
+												<button onClick={() => removeFromCart(item.id)} className="bg-red-600 rounded w-8 h-8  text-white flex items-center justify-center">
+													<span className="align-middle items-center"><IoTrashOutline /></span>
+												</button>
+											</div>
+										</div>
 									</div>
-
-									<div className="pl-10 align-middle">
-										<h3 className="text-xl font-bold text-center">{item.name}</h3>
-										<hr />
-										<p className="text-l">Precio: ${item.price * item.quantity}</p>
-										<p>Cantidad: {item.quantity}</p>
-										{haveInsufficientStock(item) ? < p className="text-red-500" >No hay stock suficiente de este producto</p> : null}
-										<button onClick={() => removeFromCart(item.id)} className="bg-red-600 rounded w-8 h-8  text-white flex items-center justify-center">
-											<span className="align-middle items-center"><IoTrashOutline /></span>
-										</button>
-									</div>
-								</div>
-							))
+								))
 						}
 					</div>
 
