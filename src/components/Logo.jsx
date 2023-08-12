@@ -6,7 +6,7 @@ const Logo = () => {
 		<div className="scale-90 hover:scale-100">
 			<Link className="text-xs text-center font-extrabold" to={"/"}>
 				<img className="w-14 h-11" src={logo} alt="Logo" />
-				<p className="text-xs text-center font-extrabold">DPM</p>
+				<p className="text-xs text-black text-center font-extrabold">DPM</p>
 			</Link>
 		</div>
 	)
