@@ -48,7 +48,7 @@ const Checkout = () => {
 
 		const batch = writeBatch(db)
 		const ordersRef = collection(db, "orders")
-		const productsRef = collection(db, "products")
+		const productsRef = collection(db, "productos")
 		const q = query(productsRef, where(documentId(), "in", cart.map(item => item.id)))
 
 		const products = await getDocs(q)
@@ -58,9 +58,9 @@ const Checkout = () => {
 			const item = cart.find(prod => prod.id === doc.id)
 			const stock = doc.data().stock
 
-			if (stock >= item.cantidad) {
+			if (stock >= item.quantity) {
 				batch.update(doc.ref, {
-					stock: stock - item.cantidad
+					stock: stock - item.quantity
 				})
 			} else {
 				outOfStock.push(item)
@@ -73,6 +73,7 @@ const Checkout = () => {
 			setOrderId(doc.id)
 			clearCart();
 			setLoading(false)
+			alert("Compra realizada con éxito")
 			return;
 		}
 
@@ -108,9 +109,9 @@ const Checkout = () => {
 
 	return (
 		!orderId ?
-			<div className="bg-blue-950 grid h-screen w-screen place-items-center">
-				<h1 className="text-white text-4xl text-center">Checkout</h1>
-				<div className="grid mb-12">
+			<div className="bg-blue-950 grid">
+				<h1 className="text-white text-4xl text-center ">Checkout</h1>
+				<div className="grid">
 					<Formik
 						initialValues={{
 							name: '',
@@ -124,7 +125,7 @@ const Checkout = () => {
 						validationSchema={schema}
 						>
 						{() => (
-							<Form>
+							<Form className="grid-cols-2 place-items-center p-40 ">
 								<label htmlFor="name" className="block mb-2 text-l font-medium text-gray-900 dark:text-white">Nombre:</label>
 								<Field type="text"
 									name="name"

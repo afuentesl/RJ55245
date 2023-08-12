@@ -18,7 +18,7 @@ const ItemDetail = (props) => {
 	}
 	return (
 		<div className="items-center bg-blue-950 h-full">
-			{Object.prototype.hasOwnProperty.call(product,"categoryName") ?
+			{Object.prototype.hasOwnProperty.call(product, "categoryName") ?
 				<div className="items-center bg-blue-950 h-full">
 					<section className="text-white body-font overflow-hidden bg-blue-950">
 						<div className="container px-5 py-24 mx-auto">
@@ -29,15 +29,23 @@ const ItemDetail = (props) => {
 									<h1 className="text-white text-3xl title-font font-medium mb-1">{product.name}</h1>
 
 									<p className="leading-relaxed">{product.description}</p>
+									<p className="leading-relaxed">Stock disponible: {product.stock}</p>
 									<div className="flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5">
 									</div>
 
-									<div className="flex">
-										<span className="title-font font-medium text-2xl text-white">$ {product.price}</span>
-										{!isInCart(product.id) ? <div className="align-middle pl-2">
-											<ItemCount max={product.stock} quantity={quantity} setQuantity={setQuantity} addToCart={handleAddItemToCart} />
-										</div> : null}
 
+									<div>
+										{product.stock === 0 ?
+											<p className="title-font font-medium text-3xl text-red-600">Producto sin stock</p> : null}
+
+										{product.stock > 0 ?
+											<div className="flex">
+												<span className="title-font font-medium text-2xl text-white">$ {product.price}</span>
+												{!isInCart(product.id) ? <div className="align-middle pl-2">
+													<ItemCount max={product.stock} quantity={quantity} setQuantity={setQuantity} addToCart={handleAddItemToCart} />
+												</div> : null}
+
+											</div> : null}
 									</div>
 
 									{isInCart(product.id) ?

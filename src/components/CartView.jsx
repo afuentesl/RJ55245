@@ -85,16 +85,17 @@ const CartView = () => {
 						<div className="place-items-center">
 							<p className="text-3xl my-2 text-black text-center">Detalle de la compra</p>
 							<br />
-							<p className="text-2xl my-2 text-black">Cantidad de productos: {totalItemsToPurchase()}</p>
-							<p className="text-2xl my-2 text-black">Total: ${totalPurchase()}</p>
+							<p className="text-2xl pl-3 my-2 text-black">Cantidad de productos: {totalItemsToPurchase()}</p>
+							<p className="text-2xl pl-3 my-2 text-black">Total: ${totalPurchase()}</p>
 							<button
 								onClick={clearCart}
-								className="text-white bg-red-700 border-0 py-4 px-6 m-3 focus:outline-none hover:bg-red-900 rounded">Vaciar carro
+								className="text-white bg-red-700 border-0 py-5 px-6 m-3 focus:outline-none hover:bg-red-900 rounded">Vaciar carro
 							</button>
-							<Link
-								className="text-white bg-green-700 border-0 py-4 px-6 focus:outline-none hover:bg-red-900 rounded "
+							<button
+								className="text-white bg-green-700 border-0 py-5 px-6 m-3 focus:outline-none hover:bg-green-900 rounded"><Link
 								to="/checkout">Terminar mi compra
 							</Link>
+							</button>	
 						</div>
 
 
